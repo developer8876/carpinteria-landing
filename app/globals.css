@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --burg:       #6B1234;
+  --burg-dark:  #4A0C23;
+  --burg-light: #8B1A42;
+  --cream:      #F5F0EB;
+  --near:       #0F0C0D;
+  --g100:       #F2EDE8;
+  --g200:       #E5DDD6;
+  --g400:       #9E948B;
+  --g600:       #6B6259;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans), 'Helvetica Neue', sans-serif;
+  color: var(--near);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── reveal animation ── */
+.rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.rv.in { opacity: 1; transform: translateY(0); }
+.rv.d1 { transition-delay: 0.1s; }
+.rv.d2 { transition-delay: 0.2s; }
+.rv.d3 { transition-delay: 0.3s; }
+.rv.d4 { transition-delay: 0.4s; }
+
+/* ── hero animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scrollBlink {
+  0%,100% { opacity: .35; transform: scaleY(1); }
+  50%     { opacity: .75; transform: scaleY(1.15); }
+}
+@keyframes kenBurns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+
+.hero-title   { animation: fadeUp  0.8s 0.5s both; }
+.hero-eyebrow { animation: fadeUp  0.8s 0.3s both; }
+.hero-sub     { animation: fadeUp  0.8s 0.7s both; }
+.hero-actions { animation: fadeIn  0.8s 0.9s both; }
+.hero-badge   { animation: fadeIn  1s   1.2s both; }
+.hero-scroll  { animation: fadeIn  1s   1.5s both; }
+.hero-bg-img  { animation: kenBurns 8s ease forwards; }
+.scroll-bar   { animation: scrollBlink 2.2s 2s infinite; }
+
+/* ── step tags ── */
+.tag {
+  @apply text-[10px] font-semibold tracking-[0.08em] uppercase text-burg bg-burg/[0.07] px-3 py-1;
+}
