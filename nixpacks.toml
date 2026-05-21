@@ -1,5 +1,5 @@
 [phases.build]
-cmds = ["npm run build", "cp -r public .next/standalone/public", "cp -r .next/static .next/standalone/.next/static"]
+cmds = ["npm run build"]
 
 [start]
 cmd = "cd .next/standalone && HOSTNAME=0.0.0.0 node server.js"
