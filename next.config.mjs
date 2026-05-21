@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Standalone output: reduces deploy size, required for Railway/Docker
   output: 'standalone',
+  images: {
+    // Images are already WebP — skip Next.js optimization (avoids loopback issues on Railway)
+    unoptimized: true,
+  },
 }
 
 export default nextConfig;
